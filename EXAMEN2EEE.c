@@ -102,4 +102,48 @@ void Menu(int *flag, int NOTAS[NUM_A][NUM_PROGRESOS]) {
 
 void ImprimirMatriz(int NOTAS[NUM_A][NUM_PROGRESOS]) {
     printf("Matriz de notas de los alumnos:\n");
-    for (int i = scroll(3)
+    for (int i = 0; i < NUM_A; i++) {
+        printf("%s: ", A[i]);
+        for (int j = 0; j < NUM_PROGRESOS; j++) {
+            printf("%d ", NOTAS[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
+
+void Opcion1(int NOTAS[NUM_A][NUM_PROGRESOS]) {
+    int suma;
+    for (int i = 0; i < NUM_A; i++) {
+        suma = 0;
+        for (int j = 0; j < NUM_PROGRESOS; j++) {
+           suma += NOTAS[i][j]; 
+        }
+        printf("El promedio de notas del %s es %f.\n", A[i], (double)suma/NUM_PROGRESOS);
+    }
+}
+
+void Opcion2(int NOTAS[NUM_A][NUM_PROGRESOS]) {
+    int suma;
+    for (int j = 0; j < NUM_PROGRESOS; j++) {
+        suma = 0;
+        for (int i = 0; i < NUM_A; i++) {
+           suma += NOTAS[i][j]; 
+        }
+        printf("El promedio de notas del progreso %d es %f.\n", j+1, (double)suma/NUM_A);
+    }
+}
+
+void Opcion3(int NOTAS[NUM_A][NUM_PROGRESOS]) {
+    int maxNota = -1;
+    int maxAlumno = -1;
+    for (int i = 0; i < NUM_A; i++) {
+        for (int j = 0; j < NUM_PROGRESOS; j++) {
+           if(NOTAS[i][j] > maxNota) {
+               maxNota = NOTAS[i][j];
+               maxAlumno = i;
+           }
+        }
+    }
+    printf("El alumno con la nota más alta es %s con una nota de %d.\n", A[maxAlumno], maxNota);
+}
