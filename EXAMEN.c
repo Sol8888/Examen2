@@ -8,6 +8,35 @@
 #define NUM_A 26
 #define NUM_PROGRESOS 3
 
+const char *A[NUM_A] = {
+    "Alumno1",
+    "Alumno2",
+    "Alumno3",
+    "Alumno4",
+    "Alumno5",
+    "Alumno6",
+    "Alumno7",
+    "Alumno8",
+    "Alumno9",
+    "Alumno10",
+    "Alumno11",
+    "Alumno12",
+    "Alumno13",
+    "Alumno14",
+    "Alumno15",
+    "Alumno16",
+    "Alumno17",
+    "Alumno18",
+    "Alumno19",
+    "Alumno20",
+    "Alumno21",
+    "Alumno22",
+    "Alumno23",
+    "Alumno24",
+    "Alumno25",
+    "Alumno26"
+};
+
 void Menu(int *flag, int NOTAS[NUM_A][NUM_PROGRESOS]);
 void ImprimirMatriz(int NOTAS[NUM_A][NUM_PROGRESOS]);
 void Opcion1(int NOTAS[NUM_A][NUM_PROGRESOS]);
@@ -74,9 +103,10 @@ void Menu(int *flag, int NOTAS[NUM_A][NUM_PROGRESOS]) {
 void ImprimirMatriz(int NOTAS[NUM_A][NUM_PROGRESOS]) {
     printf("Matriz de notas de los alumnos:\n");
     for (int i = 0; i < NUM_A; i++) {
-        printf("A%d:\n", i + 1);
+        printf("%s: ", A[i]);
         for (int j = 0; j < NUM_PROGRESOS; j++) {
-            printf("%s: ", j + 1);
+           printf("A%d:\n", j + 1);
+            printf("%d ", NOTAS[i][j]);
         }
         printf("\n");
     }
@@ -88,10 +118,39 @@ void Opcion1(int NOTAS[NUM_A][NUM_PROGRESOS]) {
     
     for (int i = 0; i < NUM_A; i++) {
         for (int j = 0; j < NUM_PROGRESOS; j++) {
-           PromedioE=  
-      
+           PromedioE= (i + i)/23; 
         }
     }
 
-    printf("El A en el que se recibió la mayor cantidad de alumnos fue el %d, con %d alumnos.\n\n", maxA + 1, maxAlumnos);
+    printf("Los promedios de las notas de cada estudiante son %d.\n\n",PromedioE);
+}
+
+void Opcion2(int NOTAS[NUM_A][NUM_PROGRESOS]) {
+    int PromedioN; 
+
+   for (int i = 0; i < NUM_A; i++) {
+        for (int j = 0; j < NUM_PROGRESOS; j++) {
+           PromedioN= (j + j)/3; 
+        }
+    }
+
+    printf("el Promedio de notas de cada progreso es %s.\n\n", PromedioN);
+}
+
+void Opcion3(int NOTAS[NUM_A][NUM_PROGRESOS]) {
+    int PromedioE;
+
+    for (int i = 0; i < NUM_A; i++) {
+        for (int j = 0; j < NUM_PROGRESOS; j++) {
+           PromedioE= (i + i)/23; 
+        }
+    }
+
+    for (int i = 0; i < NUM_A; i++) {
+        for (int j = 0; j < NUM_PROGRESOS; j++) {
+            PromedioE += NOTAS[i][j];
+        }
+    }
+
+    printf("El A");
 }
